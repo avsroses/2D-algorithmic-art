@@ -1,13 +1,15 @@
 const COLOURS = ["#2768B790", "#8A64D690", "#9AD66490", "#D6649190"];
-const SOLIDCOLOURS = ["#EEE64B", "#4DEF7F", "#AB4DEF", "#EFAD4D", "#BFD641"]
+const SOLIDCOLOURS = ["#E08E7D", "#1F25A6", "#86B5C8", "#C01111", "#541778", "#C0BFBF"]
+const IDEA2COLOURS = ["#FF0000", "#FFFF00", "#FFFFF0", "#00008B", "#FFFFF0", "#000000"];
 
 function setup() {
-    createCanvas(800, 600);
+    createCanvas(800, 800);
     noLoop();
+
 }
 
 function draw() {
-    background(255, 10);
+    //background(255);
     noStroke();
 
     /////////////
@@ -38,5 +40,22 @@ function draw() {
     /////////////
     //IDEA 2/////
     /////////////
+    
     const CELLSIZE = 80;
+    const ARCVALUES = [TAU * 0.25, TAU * 0.5, TAU * 0.75, TAU];
+    const ARCVALUES2 = [TAU * 0.75, TAU];
+    for (let y = 0; y < height; y += CELLSIZE) {
+        for (let x = 0; x < width; x += CELLSIZE) {
+            fill(random(COLOURS));
+            arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, 0, random(ARCVALUES2));
+            fill(random(COLOURS));
+            arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, 0, random(ARCVALUES));
+            fill(random(COLOURS));
+            arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, 0, random(ARCVALUES));
+            fill(random(COLOURS));
+            arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, 0, random(ARCVALUES));
+            fill(random(COLOURS));
+            arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, 0, random(ARCVALUES));
+        }
+    } 
 }
