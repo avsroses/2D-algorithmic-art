@@ -1,7 +1,7 @@
-const COLOURS = ["#FF0000", "#FFFF00", "#FFFFF0", "#00008B", "#FFFFF0", "#000000"];
+const COLOURS = [];
 
 function setup() {
-    createCanvas(780, 600);
+    createCanvas(800, 600);
     noLoop();
 }
 
@@ -10,21 +10,21 @@ function draw() {
     noStroke();
 
     const CELLSIZE = 100;
-    for(let y = 10; y < height; y += CELLSIZE) {
-      for(let x = 10; x < width; x += CELLSIZE) {
-        fill(random(255));
-        rect(x, y, CELLSIZE);
-        x += CELLSIZE;
-      }
-      y += CELLSIZE;
-    }
-
-    for(let y = 10; y < height; y += CELLSIZE) {
-        for(let x = 50; x < width; x += CELLSIZE) {
-          fill(random(255));
-          rect(x, y, CELLSIZE);
-          x += CELLSIZE;
+    for (let y = 50; y < height; y += CELLSIZE) {
+        for (let x = 100; x < width; x += CELLSIZE) {
+            fill(238, 230, 75);
+            circle(x, y, CELLSIZE);
+            x += CELLSIZE;
         }
         y += CELLSIZE;
-      }
+    }
+
+    for (let y = 50; y < height; y += CELLSIZE) {
+        for (let x = 140; x < width; x += CELLSIZE) {
+            fill(39, 87, 183, 120);
+            circle(x, y, CELLSIZE);
+            x += CELLSIZE;
+        }
+        y += CELLSIZE;
+    }
 }
