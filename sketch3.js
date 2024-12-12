@@ -32,12 +32,12 @@ function draw() {
         for (let x = 0; x < width; x += CELLSIZE) {
 
             if(isPressing && mouseX >= x && mouseX <= x + cellSize && mouseY >= y && mouseY <= y + cellSize){
-                fill("#13229145")
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE,  angle + 45, angle - 45);
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, angle1 + 90, angle1 - 90);            
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, angle2 + 135, angle2 - 135);  
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, angle3 + 90, angle3 - 90);
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, angle4 + 135, angle4 - 135);
+                fill(0)
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, 0, 270);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, 0, 90);            
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, 0, 145);  
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, 0, 45);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, 0, 90);
             } else {
                 fill(gridCoulours[colourIndex]);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE,  angle + 45, angle - 45);        
