@@ -13,7 +13,6 @@ let angle4 = 0;
 
 function setup() {
     createCanvas(800, 800);
-    //noLoop();
     angleMode(DEGREES);
 
     for (let y = 0; y < height; y += CELLSIZE) {
