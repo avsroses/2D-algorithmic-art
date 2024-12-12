@@ -5,12 +5,13 @@ const IDEA2COLOURS = ["#FF0000", "#FFFF00", "#FFFFF0", "#00008B", "#FFFFF0", "#0
 function setup() {
     createCanvas(800, 800);
     noLoop();
+    rectMode(CENTER);
 
 }
 
 function draw() {
     //background(255);
-    noStroke();
+    //noStroke();
 
     /////////////
     //IDEA 1/////
@@ -42,10 +43,12 @@ function draw() {
     /////////////
     
     const CELLSIZE = 80;
-    const ARCVALUES = [TAU * 0.25, TAU * 0.5, TAU * 0.75, TAU];
+    const ARCVALUES = [TAU * 0.25, TAU * 0.5, TAU * 0.75, TAU, PI + QUARTER_PI];
     const ARCVALUES2 = [TAU * 0.75, TAU];
     for (let y = 0; y < height; y += CELLSIZE) {
         for (let x = 0; x < width; x += CELLSIZE) {
+            //let axis = createVector(x + CELLSIZE / 2, y + CELLSIZE / 2, 0);
+            //rotate(QUARTER_PI, axis);
             fill(random(COLOURS));
             arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, 0, random(ARCVALUES2));
             fill(random(COLOURS));
