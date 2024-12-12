@@ -1,4 +1,4 @@
-const GRID = 50;
+const GRID = 20;
 
 function setup() {
   createCanvas(600, 600);

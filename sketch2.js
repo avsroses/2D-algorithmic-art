@@ -11,7 +11,7 @@ function setup() {
 
 function draw() {
     //background(255);
-    //noStroke();
+    noStroke();
 
     /////////////
     //IDEA 1/////
