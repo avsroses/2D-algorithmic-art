@@ -57,3 +57,10 @@ function draw() {
     angle4++;
 
 }
+
+function mousePressed(){
+    isPressing = true;
+}
+function mouseReleased(){
+    isPressing = false;
+}
