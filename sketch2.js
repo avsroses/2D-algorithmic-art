@@ -2,16 +2,36 @@ const COLOURS = ["#2768B790", "#8A64D690", "#9AD66490", "#D6649190"];
 const SOLIDCOLOURS = ["#E08E7D", "#1F25A6", "#86B5C8", "#C01111", "#541778", "#C0BFBF"]
 const IDEA2COLOURS = ["#FF0000", "#FFFF00", "#FFFFF0", "#00008B", "#FFFFF0", "#000000"];
 
+const ROTATIONS = [1, 2, 3, 4];
+
+let angle = 0;
+const CELLSIZE = 80;
+
 function setup() {
     createCanvas(800, 800);
     noLoop();
-    rectMode(CENTER);
-
+    angleMode(DEGREES);
 }
 
 function draw() {
-    //background(255);
-    noStroke();
+    background(225);
+
+    for (let y = 0; y < height; y += CELLSIZE) {
+        for (let x = 0; x < width; x += CELLSIZE) {
+            fill(255)
+            rect(x, y, CELLSIZE, CELLSIZE);
+        }
+    }
+
+    for (let y = 0; y < height; y += CELLSIZE) {
+        for (let x = 0; x < width; x += CELLSIZE) {
+            angle = 90 * (random(ROTATIONS));
+            rotate(angle);
+            arc(x, y, CELLSIZE*2, CELLSIZE*2, 0, 90);
+        }
+    }
+
+
 
     /////////////
     //IDEA 1/////
@@ -41,7 +61,7 @@ function draw() {
     /////////////
     //IDEA 2/////
     /////////////
-    
+    /*
     const CELLSIZE = 80;
     const ARCVALUES = [TAU * 0.25, TAU * 0.5, TAU * 0.75, TAU, PI + QUARTER_PI];
     const ARCVALUES2 = [TAU * 0.75, TAU];
@@ -60,5 +80,5 @@ function draw() {
             fill(random(COLOURS));
             arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, 0, random(ARCVALUES));
         }
-    } 
+    } */
 }
