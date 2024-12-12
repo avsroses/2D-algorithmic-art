@@ -1,6 +1,8 @@
-let isPressing = false;
 let gridCoulours = [];
+let arcRotation = [];
+
 const COLOURS = ["#2768B790", "#8A64D690", "#9AD66490", "#D6649190"];
+const ANGLES = [45, 90, 135, 90, 45, 135, 15];
 const CELLSIZE = 80;
 
 let angle = 0;
@@ -16,7 +18,8 @@ function setup() {
 
     for (let y = 0; y < height; y += CELLSIZE) {
         for (let x = 0; x < width; x += CELLSIZE) {
-            gridCoulours.push(random(COLOURS))
+            gridCoulours.push(random(COLOURS));
+            arcRotation.push(random(ANGLES));
         }
     }
 }
@@ -27,12 +30,13 @@ function draw() {
 
     //colour index value
     let colourIndex = 0;
+    let angleIndex = 0;
 
     for (let y = 0; y < height; y += CELLSIZE) {
         for (let x = 0; x < width; x += CELLSIZE) {
 
-            if(isPressing && mouseX >= x && mouseX <= x + cellSize && mouseY >= y && mouseY <= y + cellSize){
-                fill(0)
+            if(mouseX >= x && mouseX <= x + CELLSIZE && mouseY >= y && mouseY <= y + CELLSIZE){
+                fill(gridCoulours[colourIndex]);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, 0, 270);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, 0, 90);            
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, 0, 145);  
@@ -56,11 +60,4 @@ function draw() {
     angle3++;
     angle4++;
 
-}
-
-function mousePressed(){
-    isPressing = true;
-}
-function mouseReleased(){
-    isPressing = false;
 }
