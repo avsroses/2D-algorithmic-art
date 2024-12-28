@@ -33,27 +33,6 @@ function draw() {
     let colourIndex = 0;
     let angleIndex = 0;
 
-    // Draw cells with rotating arcs
-    for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < cols; x++) {
-            // Calculate position of cell center
-            let centerX = x * CELLSIZE + CELLSIZE / 2;
-            let centerY = y * CELLSIZE + CELLSIZE / 2;
-
-            // Draw arc with rotation
-            push();
-            translate(centerX, centerY);
-            rotate(radians(arcAngle));
-            arc(0, 0, CELLSIZE, CELLSIZE, 0, PI);
-            pop();
-
-            // Increment angle for next rotation
-            arcAngle = (arcAngle + 10) % 360;
-        }
-    }
-
-    let rotations = [0, PI/2, PI, 3*PI/2];
-
     for (let y = 0; y < height; y += CELLSIZE) {
         for (let x = 0; x < width; x += CELLSIZE) {
 
@@ -75,7 +54,6 @@ function draw() {
                 angleIndex++;
             }
         }
-        arcAngle = 0;
     }
 
     
