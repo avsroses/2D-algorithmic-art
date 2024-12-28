@@ -2,34 +2,66 @@ const COLOURS = ["#2768B790", "#8A64D690", "#9AD66490", "#D6649190"];
 const SOLIDCOLOURS = ["#E08E7D", "#1F25A6", "#86B5C8", "#C01111", "#541778", "#C0BFBF"]
 const IDEA2COLOURS = ["#FF0000", "#FFFF00", "#FFFFF0", "#00008B", "#FFFFF0", "#000000"];
 
-const ROTATIONS = [1, 2, 3, 4];
+const ROTATIONS = [90, 180, 270];
 
 let angle = 0;
 const CELLSIZE = 80;
 
+
 function setup() {
     createCanvas(800, 800);
     noLoop();
-    angleMode(DEGREES);
+    // angleMode(DEGREES);
 }
 
 function draw() {
     background(225);
 
-    for (let y = 0; y < height; y += CELLSIZE) {
-        for (let x = 0; x < width; x += CELLSIZE) {
-            fill(255)
-            rect(x, y, CELLSIZE, CELLSIZE);
-        }
-    }
+    // for (let y = 0; y < height; y += CELLSIZE) {
+    //     for (let x = 0; x < width; x += CELLSIZE) {
+    //         fill(255)
+    //         rect(x, y, CELLSIZE, CELLSIZE);
+    //     }
+    // }
 
-    for (let y = 0; y < height; y += CELLSIZE) {
-        for (let x = 0; x < width; x += CELLSIZE) {
-            angle = 90 * (random(ROTATIONS));
-            rotate(angle);
-            arc(x, y, CELLSIZE*2, CELLSIZE*2, 0, 90);
-        }
-    }
+    // for (let y = 0; y < height; y += CELLSIZE) {
+    //     for (let x = 0; x < width; x += CELLSIZE) {
+    //         angle = 90 * (random(ROTATIONS));
+    //         rotate(random(ROTATIONS));
+    //         arc(x, y, CELLSIZE * 2, CELLSIZE * 2, 0, 90);
+    //     }
+    // }
+
+
+    // // Calculate number of cells in each direction
+    // let cols = width / CELLSIZE;
+    // let rows = height / CELLSIZE;
+
+    // // Define rotation angles
+    // let rotations = [0, 90, 180, 270];
+
+    // // Draw cells with rotating arcs
+    // for (let y = 0; y < rows; y++) {
+    //     for (let x = 0; x < cols; x++) {
+    //         // Calculate position of cell center
+    //         let centerX = x * CELLSIZE + CELLSIZE / 2;
+    //         let centerY = y * CELLSIZE + CELLSIZE / 2;
+
+    //         // Draw arc with rotation
+    //         push();
+    //         translate(centerX, centerY);
+    //         rotate(radians(angle));
+    //         arc(0, 0, CELLSIZE, CELLSIZE, 0, PI);
+    //         pop();
+
+    //         // Increment angle for next rotation
+    //         angle = (angle + 10) % 360;
+    //     }
+    // }
+
+    // // Reset angle for next frame
+    // angle = 0;
+
 
 
 

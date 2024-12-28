@@ -5,6 +5,8 @@ const COLOURS = ["#2768B790", "#8A64D690", "#9AD66490", "#D6649190"];
 const ANGLES = [45, 90, 135, 90, 45, 135, 15];
 const CELLSIZE = 80;
 
+let arcAngle = 0;
+
 let angle = 0;
 let angle1 = 0;
 let angle2 = 0;
@@ -31,28 +33,52 @@ function draw() {
     let colourIndex = 0;
     let angleIndex = 0;
 
+    // Draw cells with rotating arcs
+    for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+            // Calculate position of cell center
+            let centerX = x * CELLSIZE + CELLSIZE / 2;
+            let centerY = y * CELLSIZE + CELLSIZE / 2;
+
+            // Draw arc with rotation
+            push();
+            translate(centerX, centerY);
+            rotate(radians(arcAngle));
+            arc(0, 0, CELLSIZE, CELLSIZE, 0, PI);
+            pop();
+
+            // Increment angle for next rotation
+            arcAngle = (arcAngle + 10) % 360;
+        }
+    }
+
+    let rotations = [0, PI/2, PI, 3*PI/2];
+
     for (let y = 0; y < height; y += CELLSIZE) {
         for (let x = 0; x < width; x += CELLSIZE) {
 
-            if(mouseX >= x && mouseX <= x + CELLSIZE && mouseY >= y && mouseY <= y + CELLSIZE){
+            if (mouseX >= x && mouseX <= x + CELLSIZE && mouseY >= y && mouseY <= y + CELLSIZE) {
                 fill(gridCoulours[colourIndex]);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, 0, 360);
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, 0, 360);            
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, 0, 360);  
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, 0, 360);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, 0, 360);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, 0, 360);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, 0, 360);
             } else {
                 fill(gridCoulours[colourIndex]);
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE,  angle + arcRotation[angleIndex], angle - arcRotation[angleIndex]);        
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, angle1 + arcRotation[angleIndex], angle1 - arcRotation[angleIndex]);                
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, angle2 + arcRotation[angleIndex], angle2 - arcRotation[angleIndex]);     
-                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, angle3 + arcRotation[angleIndex], angle3 - arcRotation[angleIndex]);   
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE, CELLSIZE, angle + arcRotation[angleIndex], angle - arcRotation[angleIndex]);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 1.3, CELLSIZE / 1.3, angle1 + arcRotation[angleIndex], angle1 - arcRotation[angleIndex]);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 2, CELLSIZE / 2, angle2 + arcRotation[angleIndex], angle2 - arcRotation[angleIndex]);
+                arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 3, CELLSIZE / 3, angle3 + arcRotation[angleIndex], angle3 - arcRotation[angleIndex]);
                 arc(x + CELLSIZE / 2, y + CELLSIZE / 2, CELLSIZE / 4, CELLSIZE / 4, angle4 + arcRotation[angleIndex], angle4 - arcRotation[angleIndex]);
                 colourIndex++;
                 angleIndex++;
             }
         }
-    } 
+        arcAngle = 0;
+    }
+
+    
 
     angle++;
     angle1++;
