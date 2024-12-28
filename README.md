@@ -1,2 +1,4 @@
 # 2D-algorithmic-art
-grids
+## Algorthimic art using grids
+trialSketch = first attempt and playing around with code
+sketch = final version
